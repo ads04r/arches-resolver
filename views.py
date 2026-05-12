@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
+from django.http import JsonResponse, Http404, HttpResponseRedirect
+from arches.app.views.plugin import PluginView
 
-# Create your views here.
+class ResolverMain(PluginView):
+
+    def get(self, request):
+        return JsonResponse({"datasets": []})
